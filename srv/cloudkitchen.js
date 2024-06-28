@@ -47,4 +47,5 @@ module.exports = cds.service.impl(async function(){
         updqry = UPDATE(ProductDescription).data({"ProductDescription":req.data.ProductDescription}).where({Product: req.data.Product, Language: 'EN'})
         await productapi.run(updqry);
     });
+    
 })

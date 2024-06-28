@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@cap-js/postgres": "^1.7.0",
+    "@cap-js/postgres": "^1.8.0",
     "@sap-cloud-sdk/http-client": "^3.15.0",
     "@sap-cloud-sdk/resilience": "^3.15.0",
     "@sap/cds": "^7",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1.6.0",
     "@sap/cds-dk": "^7.9.1",
-    "@sap/ux-specification": "^1.120.11",
+    "@sap/ux-specification": "^1.120.13",
     "rimraf": "^3.0.2"
   },
   "scripts": {
@@ -24,7 +24,8 @@
     "watch-kitchen": "cds watch --open kitchen/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy CloudKitchen --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-product": "cds watch --open product/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -51,7 +52,7 @@
           "credentials": {
             "destination": "S4HANA",
             "path": "/sap/opu/odata/sap/API_PRODUCT_SRV",
-            "timeout": 60000 
+            "timeout": 60000
           }
         }
       }
@@ -59,6 +60,7 @@
   },
   "sapux": [
     "app/kitchen",
-    "app/kitchen"
+    "app/kitchen",
+    "app/product"
   ]
 }
